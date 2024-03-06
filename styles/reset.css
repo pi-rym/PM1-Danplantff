@@ -1,0 +1,52 @@
+/* Reset CSS */
+
+/* Box sizing rules */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Remove default margin */
+  body, h1, h2, h3, p, figure, blockquote, dl, dd {
+    margin: 0;
+  }
+  
+  /* Remove list styles on ul, ol elements */
+  ul, ol {
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Set core body defaults */
+  body {
+    line-height: 1.6;
+  }
+  
+  /* Style the image tag */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Reset heading margin */
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Reset link styles */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Remove default button styles */
+  button {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+  }
+  
+  /* Additional styles can be added as needed */
+  
+  /* End Reset CSS */

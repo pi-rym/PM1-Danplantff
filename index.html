@@ -1,11 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/reset.css"/>
 </head>
 <body>
-    <h1>Proyecto M1</h1>
+    <header>
+        <h1 class="titles">Mi Página web</h1>
+        <h2 class="titles">este es un texto simple</h2>
+    </header>
+
+    <main>
+        <section class="secciones" id="sobre_mi">
+            <h3>Sobre mi</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis praesentium at commodi expedita, 
+                modi vitae aperiam officia dignissimos quae iusto labore neque velit minima molestiae 
+                porro reprehenderit voluptatem non. Cupiditate?</p>
+        </section>
+
+        <section class="secciones">
+            <h3>Mis Tecnologias Favoritas</h3>
+        <div id="contenedor-cajas">
+            <div class="cajas">
+                <h4>Raspbery pi</h4>
+                <img src="./assets/raspberry.png"/>
+            </div>
+            <div class="cajas">
+                <h4>Arduino</h4>
+                <img src="./assets/arduino.png"/>
+            </div>
+            <div class="cajas">
+                <h4>Microchip</h4>
+                <img src="./assets/microchip.png"/>
+            </div>
+        </div>
+        </section>
+        <section>
+            <div class="caja_de_entradas">
+            <h3>Mis actividades favoritas</h3>
+            <input class="entradas" id="nameInput" type="text" placeholder="Nombre de la Actividad"/>
+            <textarea class="entradas"  placeholder="Descripcion" id="descrip" cols="50" rows="10" ></textarea>
+            <input class="entradas"  id="linkInput" type="text" placeholder="link de la imagen"/>
+            <button id="button">ENVIAR</button>
+            </div>
+        </section>
+
+        <section>
+            <h3>texto nuevo</h3>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
