@@ -23,7 +23,7 @@
 
         <section class="secciones">
             <h3>Mis Tecnologias Favoritas</h3>
-        <div id="contenedor-cajas">
+        <div class="contenedor-cajas">
             <div class="cajas">
                 <h4>Raspbery pi</h4>
                 <img src="./assets/raspberry.png"/>
@@ -40,16 +40,19 @@
         </section>
         <section>
             <div class="caja_de_entradas">
-            <h3>Mis actividades favoritas</h3>
+            <h3>Agregar actividades favoritas</h3>
             <input class="entradas" id="nameInput" type="text" placeholder="Nombre de la Actividad"/>
             <textarea class="entradas"  placeholder="Descripcion" id="descrip" cols="50" rows="10" ></textarea>
-            <input class="entradas"  id="linkInput" type="text" placeholder="link de la imagen"/>
+            <input required type="url" class="entradas"  id="linkInput" type="text" placeholder="link de la imagen"/>
             <button id="button">ENVIAR</button>
             </div>
         </section>
 
-        <section>
-            <h3>texto nuevo</h3>
+        <section class="secciones">
+            <h3>Actividades favoritas</h3>
+            <div id="container">
+
+            </div>
         </section>
     </main>
 
