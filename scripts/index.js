@@ -1,103 +1,80 @@
-class Activity {
-    constructor(title, description, imgUrl, ID){
-        this.title = title;
-        this.description = description;
-        this.imgUrl = imgUrl;
-        this.ID = ID;
-    }
-    addID(id){
-        this.ID=id;
+class Activity{
+    constructor(id, title,description,imgUrl){
+        this.id=id;
+        this.title=title;
+        this.description=description;
+        this.imgUrl=imgUrl;
     }
 }
-
 class Repository{
     constructor(){
-        this.activities = [];
-        this.id=0;
+        this.activities=[];
     }
     getAllActivities(){
         return this.activities;
     }
-    CreateAtivity(title,description,imgUrl){
-        let Actividad = new Activity(title,description,imgUrl,this.id);
-        this.activities.push(Actividad);
-        this.id++;
+    createActivity(id, title,description,imgUrl){
+        const activity= new Activity(id, title,description,imgUrl);
+        this.activities.push(activity);
     }
-    deleteActivity(ID){
-        let Eliminar = this.activities.filter((Activity) => Activity.ID !== ID);
-        this.activities = Eliminar;
+    deleteActivity(id){
+        let newActivities = this.activities.filter((activity)=>activity.id !==id);
+        this.activities= newActivities;
     }
 }
+const repository = new Repository();
 
-//---------creamos el repositorio---------
-const repositorio= new Repository();
-
-///-------------entradas------------------
-//tomamos las imputs
-const titleLabel = document.getElementById('nameInput');
-const descriptionLabel = document.getElementById('descrip');
-const imgUrlLabel = document.getElementById('linkInput');
-const buttonId = document.getElementById('button');
-//selecionamos el contenedor
-const containerLabel = document.getElementById('container');
-
-//------------funcion que convierte las activitis en tarjetas--------
 function goTargets(Object){
-    let {title, description, imgUrl}=Object;
+    let {title, description, imgUrl, id}=Object;
     let h3 = document.createElement('h3');
     let p = document.createElement('p');
     let img = document.createElement('img');
-
-    h3.innerHTML = title;
-    p.innerHTML = description;
-    img.src = imgUrl;
-
-    const newDiv = document.createElement('div');
+    h3.innerHTML=title;
+    p.innerHTML=description;
+    img.src=imgUrl;
+    let newDiv = document.createElement('div');
     newDiv.appendChild(h3);
     newDiv.appendChild(p);
     newDiv.appendChild(img);
+    newDiv.id=id;
     newDiv.classList.add("targets");
-    newDiv.id = Object.ID;
     return newDiv;
-    
+}
+function toHtml(){
+    let container = document.getElementById("container");
+    container.innerHTML="";
+    let activities = repository.getAllActivities();
+    let targets = activities.map(goTargets);
+    targets.forEach(target=>{
+        container.appendChild(target);
+    });
 }
 
-
-//----------función de agregar la tarjeta---------
-const addTarget =()=>{
-    //leemos los valores de la tarjeta
-    const title = titleLabel.value;
-    const description = descriptionLabel.value;
-    const imgUrl = imgUrlLabel.value;
-    //comprobamos que no esten vacios
-    if(title=="" || description=="" || imgUrl==""){
+function handler(){
+    const titleLabel = document.getElementById("titleInput");
+    const descriptionLabel = document.getElementById("descripInput");
+    const imgUrlLabel = document.getElementById("imgInput");
+    let title = titleLabel.value;
+    let description = descriptionLabel.value;
+    let imgUrl = imgUrlLabel.value;
+    let id=0;
+    if(title & description & imgUrl ==="" ){
         window.alert("Faltan datos!");
-        return;
-    }
-    //
-    repositorio.CreateAtivity(title,description,imgUrl);
-    containerLabel.innerHTML="";
-    //
-    let tarjetas = repositorio.activities.map(goTargets);
-    tarjetas.forEach(tarjeta=>{
-        containerLabel.appendChild(tarjeta);
-    });
+        return;}
+    repository.createActivity(id,title,description,imgUrl);
+    id++;
+    toHtml();
     titleLabel.value="";
     descriptionLabel.value="";
     imgUrlLabel.value="";
-
 }
-//--------click-----
-buttonId.addEventListener("click", addTarget);
+const button = document.getElementById("button");
+button.addEventListener("click", handler);
 
-//--------remove-----
-containerLabel.addEventListener('click', function(event) {
-    // Verificamos si el elemento clickeado es un div con la clase 'elemento'
+const container = document.getElementById("container");
+container.addEventListener('click', function(event) {
     if (event.target.classList.contains('targets')) {
-      // Eliminamos el elemento clickeado
-      event.target.remove();
-      
-    }
+      event.target.remove(); }
     let targetID = event.target.id;
-    repositorio.deleteActivity(parseInt(targetID));
+    repository.deleteActivity(parseInt(targetID));
   });

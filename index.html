@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,57 +9,53 @@
 </head>
 <body>
     <header>
-        <h1 class="titles">Mi Página web</h1>
-        <h2 class="titles">este es un texto simple</h2>
+        <h1>Daniel Ramos</h1>
+        <h2>This is a presentation page</h2>
     </header>
 
     <main>
-        <section class="secciones" id="sobre_mi">
-            <h3>Sobre mi</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis praesentium at commodi expedita, 
-                modi vitae aperiam officia dignissimos quae iusto labore neque velit minima molestiae 
-                porro reprehenderit voluptatem non. Cupiditate?</p>
+        <section class="section">
+            <h2>About me</h2>
+            <p>I am an engineering student from Peru, i really like programming
+                , my first language was C++ now, I'm getting web programming. 
+                Like possibly everyone who is reading this, at the time web programming 
+                caught my attention enough to be able to dedicate myself to this, I also 
+                feel very happy to be part of Henry, I hope we see each other soon
+            </p>
+        </section>
+        <section class="section">
+            <h2>My favorite technologies</h2>
+            <div class="container_box">
+                <div class="box">
+                    <h4>Raspbery pi</h4>
+                    <img src="./assets/img/raspberry.png"/>
+                </div>
+                <div class="box">
+                    <h4>Arduino</h4>
+                    <img src="./assets/img/arduino.png"/>
+                </div>
+                <div class="box">
+                    <h4>Microchip</h4>
+                    <img src="./assets/img/microchip.png"/>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>My favorite activities</h2>
+            <form class="container_inputs">
+                <input id="titleInput" type="text" placeholder="Activity">
+                <textarea id="descripInput" cols="50" rows="10" placeholder="Descripcion"></textarea>
+                <input id="imgInput" type="url" placeholder="Img URL">
+                <button type="button" id="button">save</button>
+            </form>
+            <div id="container_activities">
+                <h2>Activities</h2>
+                <div id="container">
+                </div>
+            </div>
         </section>
 
-        <section class="secciones">
-            <h3>Mis Tecnologias Favoritas</h3>
-        <div class="contenedor-cajas">
-            <div class="cajas">
-                <h4>Raspbery pi</h4>
-                <img src="./assets/raspberry.png"/>
-            </div>
-            <div class="cajas">
-                <h4>Arduino</h4>
-                <img src="./assets/arduino.png"/>
-            </div>
-            <div class="cajas">
-                <h4>Microchip</h4>
-                <img src="./assets/microchip.png"/>
-            </div>
-        </div>
-        </section>
-        <section>
-            <div class="caja_de_entradas">
-            <h3>Agregar actividades favoritas</h3>
-            <input class="entradas" id="nameInput" type="text" placeholder="Nombre de la Actividad"/>
-            <textarea class="entradas"  placeholder="Descripcion" id="descrip" cols="50" rows="10" ></textarea>
-            <input required type="url" class="entradas"  id="linkInput" type="text" placeholder="link de la imagen"/>
-            <button id="button">ENVIAR</button>
-            </div>
-        </section>
-
-        <section class="secciones">
-            <h3>Actividades favoritas</h3>
-            <div id="container">
-
-            </div>
-        </section>
     </main>
-
-    <footer>
-
-    </footer>
-
     <script src="./scripts/index.js"></script>
 </body>
 </html>
